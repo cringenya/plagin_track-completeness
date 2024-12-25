@@ -1,0 +1,65 @@
+{
+  "name": "track-completeness",
+  "displayName": "track-completeness",
+  "description": "Track how many functions and .cpp files are completed",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/*.cpp"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+        {
+            "command": "track-completeness.projectStats",
+            "title": "Show Project Completion Stats"
+        },
+        {
+            "command": "track-completeness.fileFunctions",
+            "title": "Show Functions in Current File"
+        },
+        {
+            "command": "track-completeness.toggleFunction",
+            "title": "Toggle Function Completion"
+        },
+        {
+            "command": "track-completeness.markAllUnfinished",
+            "title": "Mark All Files as Unfinished"
+        },
+        {
+            "command": "track-completeness.markAllCompleted",
+            "title": "Mark All Functions in Current File as Completed"
+        }
+    ],
+    "keybindings": [
+        {
+            "command": "track-completeness.markAllUnfinished",
+            "key": "ctrl+alt+u",
+            "when": "editorTextFocus"
+        },
+        {
+            "command": "track-completeness.markAllCompleted",
+            "key": "ctrl+alt+c",
+            "when": "editorTextFocus"
+        }
+    ]
+},
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.16.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
